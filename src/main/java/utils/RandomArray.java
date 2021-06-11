@@ -2,6 +2,7 @@ package utils;
 
 import java.util.Arrays;
 
+import net.xinrenlei.sort.MergeSort;
 import net.xinrenlei.sparsearray.sort;
 
 public class RandomArray {
@@ -55,13 +56,15 @@ public class RandomArray {
         
         int testTimes = 10;
         int maxSize = 10;
-        int maxValue = 100;
+        int maxValue = 10;
         boolean success = true;
         for (int i=0; i < testTimes; i++){
             int[] arr1 = generateRandomArray(maxSize, maxValue);
             int[] arr2 = copyArray(arr1);
-            sort.insertionSort(arr1);
+//            sort.insertionSort(arr1);
+            MergeSort.mergeSort(arr1);
             Arrays.sort(arr2);
+            System.out.println(Arrays.toString(arr1));
             if (!isEqual(arr1, arr2)){
                 System.out.println(Arrays.toString(arr1));
                 System.out.println(Arrays.toString(arr2)); 
