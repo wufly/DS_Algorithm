@@ -3,6 +3,7 @@ package utils;
 import java.util.Arrays;
 
 import net.xinrenlei.sort.MergeSort;
+import net.xinrenlei.sort.QuickSort;
 import net.xinrenlei.sparsearray.sort;
 
 public class RandomArray {
@@ -54,17 +55,18 @@ public class RandomArray {
     
     public static void main(String[] args){
         
-        int testTimes = 10;
+        int testTimes = 1000;
         int maxSize = 10;
-        int maxValue = 10;
+        int maxValue = 1000;
         boolean success = true;
         for (int i=0; i < testTimes; i++){
             int[] arr1 = generateRandomArray(maxSize, maxValue);
             int[] arr2 = copyArray(arr1);
 //            sort.insertionSort(arr1);
-            MergeSort.mergeSort(arr1);
+//            MergeSort.mergeSort(arr1);
+            QuickSort.quickSort(arr1, 0, arr1.length-1);
             Arrays.sort(arr2);
-            System.out.println(Arrays.toString(arr1));
+//            System.out.println(Arrays.toString(arr1));
             if (!isEqual(arr1, arr2)){
                 System.out.println(Arrays.toString(arr1));
                 System.out.println(Arrays.toString(arr2)); 
